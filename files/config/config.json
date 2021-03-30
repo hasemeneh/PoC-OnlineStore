@@ -1,0 +1,4 @@
+{
+    "db_connection":"root:@tcp(wi-db:3306)/poc_store?parseTime=true&loc=Local",
+    "running_port":":3020"
+}

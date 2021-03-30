@@ -1,0 +1,37 @@
+version: '2'
+services:
+  poc:
+    image: "ubuntu:14.04"
+    container_name: poc
+    volumes:
+      - ./../bin/:/usr/local/bin/
+      - /etc/ssl/certs:/etc/ssl/certs
+      - ./../files/config:/etc/poc-config/
+    ports:
+      - "3020:3020"
+    depends_on:
+      - wi-db
+    links:
+      - wi-db
+    command: tail -f /dev/null
+    environment:
+      - TZ=Asia/Jakarta
+
+
+  wi-db:
+    image: mysql:5.7
+    container_name: wi-db
+    volumes:
+      - /docker/wi-db:/var/lib/mysql
+      - ./bin/setup.sh:/usr/local/bin/setup.sh
+      - ./../files/database:/etc/database/
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: poc_store
+      MYSQL_USER: root
+      MYSQL_PASSWORD:
+      TZ: Asia/Jakarta
+    ports:
+      - "33063:3306"
+
