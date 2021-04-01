@@ -37,7 +37,7 @@ func (se *server) Serve() {
 	se.server = s
 	pb.RegisterWarehouseServer(s, se)
 
-	log.Println("Connectiong to warehouse GRPC ", se.GrpcPort)
+	log.Println("Serving warehouse GRPC on ", se.GrpcPort)
 	if err := s.Serve(lis); err != nil {
 		se.Fatalln("failed to serve: ", err)
 	}
