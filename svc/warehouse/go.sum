@@ -35,6 +35,8 @@ github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210330162949-3a1989d31c87 h1:OOlpR
 github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210330162949-3a1989d31c87/go.mod h1:JkldPNU28Ku4lYoIfDLNFdVcRFzuErVdXCrkAPvOu7I=
 github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210401161006-1d2548c75145 h1:ODJU0lzdANj7kFVv4572r48y55E7OFPIQpITOzZPbeY=
 github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210401161006-1d2548c75145/go.mod h1:2MsEfxkjQFEoz1HS9Mb44dJ25tpEWmi+ku3EYZbLNfc=
+github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210401162937-4bf361cef834 h1:OrsGhM0/25mfl6+4VthiW5PfY+JyAzRxG9pgpW4xwVE=
+github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210401162937-4bf361cef834/go.mod h1:2MsEfxkjQFEoz1HS9Mb44dJ25tpEWmi+ku3EYZbLNfc=
 github.com/hasemeneh/PoC-OnlineStore/helper v0.0.0-20210401161006-1d2548c75145 h1:KsGCMLy4VSUXH8Jw/wUI9gIeQX++Yf1KCsTYyNkeDec=
 github.com/hasemeneh/PoC-OnlineStore/helper v0.0.0-20210401161006-1d2548c75145/go.mod h1:TLNTp+r6lSg7iAKjK8bcmul6v1CBRqHPmHbfxdTl6cQ=
 github.com/jmoiron/sqlx v1.3.1 h1:aLN7YINNZ7cYOPK3QC83dbM6KT0NMqVMw961TqrejlE=

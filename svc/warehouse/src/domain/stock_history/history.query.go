@@ -23,14 +23,14 @@ func (p *stockHistoryDomain) GetProductByProductID(ctx context.Context, productI
 
 var insertHistoryQuery = "INSERT INTO `wh_stock_history` (`sk_id`, `type`, `amount`, `additional_info`) VALUES ( ?, ?, ?, ?);"
 
-func (p *stockHistoryDomain) InsertHistory(ctx context.Context, dbtx *sqlx.Tx, productID int64, quantity int) error {
+func (p *stockHistoryDomain) InsertHistory(ctx context.Context, dbtx *sqlx.Tx, req models.StockHistoryModel) error {
 	var execFunc database.ExecFunc
 	if dbtx == nil {
 		execFunc = p.DB.ExecContext
 	} else {
 		execFunc = dbtx.ExecContext
 	}
-	_, err := execFunc(ctx, insertHistoryQuery, quantity, productID)
+	_, err := execFunc(ctx, insertHistoryQuery, req.StockKeepingID, req.Type, req.Amount, req.AdditionalInfo)
 	return err
 
 }
