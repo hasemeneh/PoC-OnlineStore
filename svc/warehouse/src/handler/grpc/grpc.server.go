@@ -10,6 +10,7 @@ import (
 	"github.com/hasemeneh/PoC-OnlineStore/svc/warehouse/src/service"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 type server struct {
@@ -36,7 +37,7 @@ func (se *server) Serve() {
 	s := grpc.NewServer()
 	se.server = s
 	pb.RegisterWarehouseServer(s, se)
-
+	reflection.Register(s)
 	log.Println("Serving warehouse GRPC on ", se.GrpcPort)
 	if err := s.Serve(lis); err != nil {
 		se.Fatalln("failed to serve: ", err)

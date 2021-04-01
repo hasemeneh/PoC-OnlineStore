@@ -8,6 +8,7 @@ import (
 
 type StockHistoryModel struct {
 	ID             int64                 `json:"id" db:"id"`
+	StockKeepingID int64                 `json:"stock_id" db:"sk_id"`
 	Type           constants.HistoryType `json:"type" db:"type"`
 	Amount         int64                 `json:"amount" db:"amount"`
 	AdditionalInfo MetaData              `json:"additional_info" db:"additional_info"`

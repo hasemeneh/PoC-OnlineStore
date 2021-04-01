@@ -10,5 +10,5 @@ import (
 type HistoryRepo interface {
 	StartTx(ctx context.Context) (*sqlx.Tx, error)
 	GetProductByProductID(ctx context.Context, productID int64) ([]models.StockHistoryModel, error)
-	InsertHistory(ctx context.Context, dbtx *sqlx.Tx, productID int64, quantity int) error
+	InsertHistory(ctx context.Context, dbtx *sqlx.Tx, req models.StockHistoryModel) error
 }

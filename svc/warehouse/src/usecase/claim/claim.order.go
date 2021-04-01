@@ -28,8 +28,15 @@ func (cu *claimUsecase) ClaimProduct(ctx context.Context, req *models.ClaimReque
 			if err != nil {
 				return resp, err
 			}
+			err = cu.HistoryRepo.InsertHistory(ctx, dbtx, models.StockHistoryModel{
+				Amount:         product.Demand,
+				StockKeepingID: keeping.ID,
+				Type:           constants.HistoryTypeOutcoming,
+			})
+			if err != nil {
+				return resp, err
+			}
 		}
-		// insert history
 		resp.Products = append(resp.Products,
 			models.ProductResponse{
 				ProductRequest: &product,

@@ -10,6 +10,8 @@ type ProductResponse struct {
 	Status constants.ClaimStatus `json:"status"`
 }
 type ClaimRequest struct {
+	OrderID  int64            `json:"order_id"`
+	CartID   int64            `json:"cart_id"`
 	Products []ProductRequest `json:"products"`
 }
 type ProductRequest struct {
