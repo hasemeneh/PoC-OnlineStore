@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "warehouse";
+package warehouse;
+
+service Warehouse {
+  rpc ValidateStock(ProductRequest) returns (ProductResponse) {}
+  rpc ClaimProduct(ClaimRequest) returns (ClaimResponse) {}
+}
+
+message ProductRequest {
+    int64 productID = 1;
+    int64 demand = 2;
+}
+
+message ProductResponse {
+    int64 productID = 1;
+    int64 demand = 2;
+    int64 status = 3;
+}
+
+
+message ClaimRequest {
+    repeated ProductRequest products = 1;
+}
+
+message ClaimResponse {
+    repeated ProductResponse products = 1;
+}

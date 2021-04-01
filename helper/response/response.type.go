@@ -6,8 +6,8 @@ const JsonContentType = "application/json"
 
 var (
 	ErrorInternalServer    = NewResponseError("Internal Server Error", 500)
-	ErrorForbiddenResource = NewResponseError("Internal Server Error", 403)
-	ErrorBadRequest        = NewResponseError("Internal Server Error", 400)
+	ErrorForbiddenResource = NewResponseError("Forbidden Resource", 403)
+	ErrorBadRequest        = NewResponseError("Bad Request", 400)
 )
 
 type ResponseError struct {

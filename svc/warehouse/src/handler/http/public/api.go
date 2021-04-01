@@ -21,6 +21,7 @@ func NewHandler(Service *service.Service) *Public {
 func (p *Public) Register(r *httprouter.Router) {
 	apiHttpHandlers := httphandler.New("/api", r)
 	apiHttpHandlers.GET("/ping", p.PING)
+	apiHttpHandlers.GET("/validate/stock", p.HandleValidateStock)
 
 }
 func (p *Public) PING(r *http.Request) response.HttpResponse {

@@ -22,6 +22,7 @@ func (i *Internal) Register(r *httprouter.Router) {
 	apiHttpHandlers := httphandler.New("/internal", r)
 	apiHttpHandlers.GET("/ping", i.PING)
 
+	apiHttpHandlers.GET("/product/stock", i.HandleGetStock)
 }
 func (i *Internal) PING(r *http.Request) response.HttpResponse {
 	return response.NewJsonResponse().SetMessage("Pong").SetData("Pung")
