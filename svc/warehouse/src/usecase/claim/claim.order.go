@@ -28,10 +28,14 @@ func (cu *claimUsecase) ClaimProduct(ctx context.Context, req *models.ClaimReque
 			if err != nil {
 				return resp, err
 			}
+			additionalInfo := make(models.MetaData)
+			additionalInfo.SetInt64(constants.KeyOrderID, req.OrderID)
+			additionalInfo.SetInt64(constants.KeyCartID, req.CartID)
 			err = cu.HistoryRepo.InsertHistory(ctx, dbtx, models.StockHistoryModel{
 				Amount:         product.Demand,
 				StockKeepingID: keeping.ID,
 				Type:           constants.HistoryTypeOutcoming,
+				AdditionalInfo: additionalInfo,
 			})
 			if err != nil {
 				return resp, err

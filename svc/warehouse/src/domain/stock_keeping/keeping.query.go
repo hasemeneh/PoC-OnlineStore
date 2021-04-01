@@ -34,7 +34,7 @@ func (p *stockKeepingDomain) GetProductByProductIDWithLock(ctx context.Context, 
 
 }
 
-var updateStockByProductID = "UPDATE `wh_stock_keeping` SET `quantity` = ? WHERE `wh_stock_keeping`.`id` = ?;"
+var updateStockByProductID = "UPDATE `wh_stock_keeping` SET `quantity` = ? WHERE `wh_stock_keeping`.`product_id` = ?;"
 
 func (p *stockKeepingDomain) UpdateStockQuantityByProductID(ctx context.Context, dbtx *sqlx.Tx, productID int64, quantity int64) error {
 	var execFunc database.ExecFunc
