@@ -1,0 +1,6 @@
+{
+    "db_connection":"root:@tcp(warehouse-db:3306)/warehouse_db?parseTime=true&loc=Local",
+    "redis_connection":"cache:6379",
+    "running_port":":3022",
+    "grpc_port":":30022"
+}

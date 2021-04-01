@@ -1,37 +1,113 @@
 version: '2'
 services:
-  poc:
+  cart:
     image: "ubuntu:14.04"
-    container_name: poc
+    container_name: cart
     volumes:
-      - ./../bin/:/usr/local/bin/
+      - ./../bin/cart/:/usr/local/bin/
       - /etc/ssl/certs:/etc/ssl/certs
-      - ./../files/config:/etc/poc-config/
+      - ./../files/config/cart:/etc/cart-config/
     ports:
       - "3020:3020"
     depends_on:
-      - wi-db
+      - cart-db
+      - cache
     links:
-      - wi-db
+      - cart-db
     command: tail -f /dev/null
     environment:
       - TZ=Asia/Jakarta
 
-
-  wi-db:
+  cart-db:
     image: mysql:5.7
-    container_name: wi-db
+    container_name: cart-db
     volumes:
-      - /docker/wi-db:/var/lib/mysql
-      - ./bin/setup.sh:/usr/local/bin/setup.sh
-      - ./../files/database:/etc/database/
+      - /docker/cart-db:/var/lib/mysql
+      - ./bin/setup-cart-db.sh:/usr/local/bin/setup.sh
+      - ./../files/database/cart:/etc/database/
     restart: always
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: poc_store
+      MYSQL_DATABASE: cart_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD:
+      TZ: Asia/Jakarta
+    ports:
+      - "33061:3306"
+
+  order:
+    image: "ubuntu:14.04"
+    container_name: order
+    volumes:
+      - ./../bin/order/:/usr/local/bin/
+      - /etc/ssl/certs:/etc/ssl/certs
+      - ./../files/config/order:/etc/order-config/
+    ports:
+      - "3021:3021"
+    depends_on:
+      - order-db
+      - cache
+    links:
+      - order-db
+    command: tail -f /dev/null
+    environment:
+      - TZ=Asia/Jakarta
+
+  order-db:
+    image: mysql:5.7
+    container_name: order-db
+    volumes:
+      - /docker/order-db:/var/lib/mysql
+      - ./bin/setup-order-db.sh:/usr/local/bin/setup.sh
+      - ./../files/database/order:/etc/database/
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: order_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD:
+      TZ: Asia/Jakarta
+    ports:
+      - "33062:3306"
+
+  warehouse:
+    image: "ubuntu:14.04"
+    container_name: warehouse
+    volumes:
+      - ./../bin/warehouse/:/usr/local/bin/
+      - /etc/ssl/certs:/etc/ssl/certs
+      - ./../files/config/warehouse:/etc/warehouse-config/
+    ports:
+      - "3022:3022"
+    depends_on:
+      - warehouse-db
+      - cache
+    links:
+      - warehouse-db
+    command: tail -f /dev/null
+    environment:
+      - TZ=Asia/Jakarta
+
+  warehouse-db:
+    image: mysql:5.7
+    container_name: warehouse-db
+    volumes:
+      - /docker/warehouse-db:/var/lib/mysql
+      - ./bin/setup-warehouse-db.sh:/usr/local/bin/setup.sh
+      - ./../files/database/warehouse:/etc/database/
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: warehouse_db
       MYSQL_USER: root
       MYSQL_PASSWORD:
       TZ: Asia/Jakarta
     ports:
       - "33063:3306"
 
+  cache:
+    image: redis:alpine
+    volumes:
+      - /docker/redis-cache:/data
+    ports:
+      - "6380:6379"

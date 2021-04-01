@@ -21,7 +21,7 @@ fi
 
 if [ -z "$MYSQL_MASTER_HOST" ];
 then
-  MYSQL_MASTER_HOST="wi-db"
+  MYSQL_MASTER_HOST="cart-db"
 fi
 
 
