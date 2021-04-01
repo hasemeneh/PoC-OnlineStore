@@ -83,6 +83,12 @@ func (m MetaData) GetInt64(key string) (int64, error) {
 	return s, nil
 }
 
+func (m MetaData) SetInt64(key string, v int64) {
+
+	byteData, _ := json.Marshal(v)
+	m[key] = byteData
+}
+
 func (m MetaData) GetFloat64(key string) (float64, error) {
 	var (
 		s float64

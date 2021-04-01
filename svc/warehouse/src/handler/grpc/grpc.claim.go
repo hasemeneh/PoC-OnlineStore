@@ -32,6 +32,8 @@ func (s *server) ClaimProduct(ctx context.Context, req *pb.ClaimRequest) (*pb.Cl
 func translacteClaimProductRequest(req *pb.ClaimRequest) *models.ClaimRequest {
 	resp := &models.ClaimRequest{
 		Products: make([]models.ProductRequest, 0),
+		CartID:   req.CartID,
+		OrderID:  req.OrderID,
 	}
 	for _, product := range req.Products {
 		resp.Products = append(resp.Products, models.ProductRequest{
