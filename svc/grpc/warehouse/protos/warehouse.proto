@@ -23,8 +23,8 @@ message ProductResponse {
 message ClaimRequest {
 
     repeated ProductRequest products = 1;
-    int64 orderID = 2;
-    int64 cartID = 3;
+    int64 cartID = 2;
+    int64 orderID = 3;
 }
 
 message ClaimResponse {
