@@ -8,8 +8,11 @@ github.com/envoyproxy/go-control-plane v0.9.0/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymF
 github.com/envoyproxy/go-control-plane v0.9.1-0.20191026205805-5f8ba28d4473/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymFceY/DCBVvsKhRF0iEA4=
 github.com/envoyproxy/go-control-plane v0.9.9-0.20201210154907-fd9021fe5dad/go.mod h1:cXg6YxExXjJnVBQHBLXeUAgxn2UodCpnH306RInaBQk=
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
+github.com/go-redis/redis v6.15.9+incompatible/go.mod h1:NAIEuMOZ/fxfXJIrKDQDz8wamY7mA7PouImQ2Jvg6kA=
 github.com/go-sql-driver/mysql v1.5.0 h1:ozyZYNQW3x3HtqT1jira07DN2PArx2v7/mN66gGcHOs=
 github.com/go-sql-driver/mysql v1.5.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
+github.com/go-sql-driver/mysql v1.6.0 h1:BCTh4TKNUYmOmMUcQ3IipzF5prigylS7XXjEkfCHuOE=
+github.com/go-sql-driver/mysql v1.6.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
 github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b/go.mod h1:SBH7ygxi8pfUlaOkMMuAQtPIUF8ecWP5IEl/CR7VP2Q=
 github.com/golang/mock v1.1.1/go.mod h1:oTYuIxOrZwtPieC+H1uAHpcLFnEyAGVDL/k47Jfbm0A=
 github.com/golang/protobuf v1.2.0/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
@@ -30,6 +33,10 @@ github.com/google/go-cmp v0.5.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/
 github.com/google/uuid v1.1.2/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210330162949-3a1989d31c87 h1:OOlpR3kfzvU3RgTRp2EbQkabjT89I7RSRrW7SN1Vi8A=
 github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210330162949-3a1989d31c87/go.mod h1:JkldPNU28Ku4lYoIfDLNFdVcRFzuErVdXCrkAPvOu7I=
+github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210401161006-1d2548c75145 h1:ODJU0lzdANj7kFVv4572r48y55E7OFPIQpITOzZPbeY=
+github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210401161006-1d2548c75145/go.mod h1:2MsEfxkjQFEoz1HS9Mb44dJ25tpEWmi+ku3EYZbLNfc=
+github.com/hasemeneh/PoC-OnlineStore/helper v0.0.0-20210401161006-1d2548c75145 h1:KsGCMLy4VSUXH8Jw/wUI9gIeQX++Yf1KCsTYyNkeDec=
+github.com/hasemeneh/PoC-OnlineStore/helper v0.0.0-20210401161006-1d2548c75145/go.mod h1:TLNTp+r6lSg7iAKjK8bcmul6v1CBRqHPmHbfxdTl6cQ=
 github.com/jmoiron/sqlx v1.3.1 h1:aLN7YINNZ7cYOPK3QC83dbM6KT0NMqVMw961TqrejlE=
 github.com/jmoiron/sqlx v1.3.1/go.mod h1:2BljVx/86SuTyjE+aPYlHCTNvZrnJXghYGpNiXLBMCQ=
 github.com/julienschmidt/httprouter v1.3.0 h1:U0609e9tgbseu3rBINet9P48AI/D3oJs4dN7jwJOQ1U=

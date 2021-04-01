@@ -79,6 +79,7 @@ services:
       - ./../files/config/warehouse:/etc/warehouse-config/
     ports:
       - "3022:3022"
+      - "30022:30022"
     depends_on:
       - warehouse-db
       - cache
