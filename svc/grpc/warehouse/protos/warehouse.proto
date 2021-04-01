@@ -1,7 +1,6 @@
 syntax = "proto3";
 
-option go_package = "warehouse";
-package warehouse;
+option go_package = ".;warehouse";
 
 service Warehouse {
   rpc ValidateStock(ProductRequest) returns (ProductResponse) {}
