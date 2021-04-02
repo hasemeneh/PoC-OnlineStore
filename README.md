@@ -15,7 +15,7 @@
 
 
 For Testing you can use  [this postman](https://github.com/hasemeneh/PoC-OnlineStore/blob/main/files/documents/PoCStore.postman_collection.json)
-
+to test Grpc I recommend you to use [grpcox](https://github.com/gusaul/grpcox)
 
 ### Reset Data
 
