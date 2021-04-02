@@ -2,8 +2,8 @@
 
 
 ## Development
-Test User ID integer
-Test Product ID : 101
+- Test User ID integer
+- Test Product ID : 101
 ### Run service
 - Run `make docker-start` to start docker container
 - Run `make docker-rebuilddb-warehouse` to create the database for warehouse service
