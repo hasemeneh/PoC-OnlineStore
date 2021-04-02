@@ -13,4 +13,5 @@ type CartRepo interface {
 	InsertCart(ctx context.Context, dbtx *sqlx.Tx, req models.CartModel) (int64, error)
 	StartTx(ctx context.Context) (*sqlx.Tx, error)
 	GetRecordedCartByUserID(ctx context.Context, UserID int64) ([]models.CartModel, error)
+	DestroyCart(ctx context.Context, userID int64) error
 }

@@ -57,3 +57,8 @@ func (c *cartDomain) GetUserCart(ctx context.Context, userID int64) (*models.Add
 	}
 	return resp, nil
 }
+
+func (c *cartDomain) DestroyCart(ctx context.Context, userID int64) error {
+	_, err := c.redis.Set(fmt.Sprintf(constants.UserCartCacheKey, userID), "{}", time.Second)
+	return err
+}
