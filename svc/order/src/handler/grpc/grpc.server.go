@@ -6,6 +6,8 @@ import (
 	"os"
 	"syscall"
 
+	pb "github.com/hasemeneh/PoC-OnlineStore/svc/grpc/order/protos"
+
 	"github.com/hasemeneh/PoC-OnlineStore/svc/order/src/service"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
@@ -33,8 +35,9 @@ func (se *server) Serve() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
+
 	se.server = s
-	// pb.RegisterWarehouseServer(s, se)
+	pb.RegisterOrderServer(s, se)
 	reflection.Register(s)
 	log.Println("Serving warehouse GRPC on ", se.GrpcPort)
 	if err := s.Serve(lis); err != nil {

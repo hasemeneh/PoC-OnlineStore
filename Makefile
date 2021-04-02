@@ -22,6 +22,15 @@ docker-rebuilddb-warehouse:
 	@echo "${NOW} RUN SQL SCRIPTS..."
 	@docker exec -it warehouse-db setup.sh /etc/database
 
+docker-rebuilddb-order:
+	@echo "${NOW} REBUILDDB..."
+	@echo "${NOW} DROPING EXISTING DB..."
+	@docker exec -it order-db  mysql -uroot -e'drop database if exists order_db'
+	@echo "${NOW} CREATE DB..."
+	@docker exec -it order-db  mysql -uroot -e'create database order_db'
+	@echo "${NOW} RUN SQL SCRIPTS..."
+	@docker exec -it order-db setup.sh /etc/database
+
 docker-stop:
 	@echo "${NOW} STOPPING CONTAINER..."
 	@${compose} down

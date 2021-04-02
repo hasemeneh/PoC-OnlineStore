@@ -9,6 +9,7 @@ services:
       - ./../files/config/cart:/etc/cart-config/
     ports:
       - "3020:3020"
+      - "30020:30020"
     depends_on:
       - cart-db
       - cache
@@ -44,6 +45,7 @@ services:
       - ./../files/config/order:/etc/order-config/
     ports:
       - "3021:3021"
+      - "30021:30021"
     depends_on:
       - order-db
       - cache
