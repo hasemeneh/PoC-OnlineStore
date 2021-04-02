@@ -60,5 +60,6 @@ func (t *transactionUsecase) CreateOrder(ctx context.Context, req *models.OrderC
 	if isRevert {
 		return resp, nil
 	}
+	resp.IsSuccess = true
 	return resp, dbtx.Commit()
 }

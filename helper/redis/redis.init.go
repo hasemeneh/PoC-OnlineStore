@@ -14,6 +14,8 @@ type RedisInterface interface {
 }
 type redisClient interface {
 	Get(key string) *redis.StringCmd
+	HSet(key, field string, value interface{}) *redis.BoolCmd
+	HGet(key, field string) *redis.StringCmd
 	Set(key string, value interface{}, expiration time.Duration) *redis.StatusCmd
 	Exists(keys ...string) *redis.IntCmd
 }
@@ -28,7 +30,6 @@ func New(address, password string) RedisInterface {
 		Password: password,
 		DB:       0,
 	})
-	client.Exists()
 	return &redisModule{
 		client: client,
 	}
@@ -37,8 +38,14 @@ func New(address, password string) RedisInterface {
 func (r *redisModule) Get(key string) (string, error) {
 	return r.client.Get(key).Result()
 }
+func (r *redisModule) HGet(key, field string) (string, error) {
+	return r.client.HGet(key, field).Result()
+}
 func (r *redisModule) Set(key string, value string, TTL time.Duration) (string, error) {
 	return r.client.Set(key, value, TTL).Result()
+}
+func (r *redisModule) HSet(key, field string, value string, TTL time.Duration) (bool, error) {
+	return r.client.HSet(key, field, value).Result()
 }
 func (r *redisModule) Exists(key ...string) (int64, error) {
 	return r.client.Exists(key...).Result()

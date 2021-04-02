@@ -31,6 +31,15 @@ docker-rebuilddb-order:
 	@echo "${NOW} RUN SQL SCRIPTS..."
 	@docker exec -it order-db setup.sh /etc/database
 
+docker-rebuilddb-cart:
+	@echo "${NOW} REBUILDDB..."
+	@echo "${NOW} DROPING EXISTING DB..."
+	@docker exec -it cart-db  mysql -uroot -e'drop database if exists cart_db'
+	@echo "${NOW} CREATE DB..."
+	@docker exec -it cart-db  mysql -uroot -e'create database cart_db'
+	@echo "${NOW} RUN SQL SCRIPTS..."
+	@docker exec -it cart-db setup.sh /etc/database
+
 docker-stop:
 	@echo "${NOW} STOPPING CONTAINER..."
 	@${compose} down
