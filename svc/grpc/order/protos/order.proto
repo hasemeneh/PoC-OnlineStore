@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "order";
+package order;
+
+service Order {
+  rpc Checkout(OrderRequest) returns (OrderResponse) {}
+}
+
+message ProductRequest {
+    int64 productID = 1;
+    int64 demand = 2;
+}
+
+message ProductResponse {
+    int64 productID = 1;
+    int64 demand = 2;
+    int64 status = 3;
+}
+
+
+message OrderRequest {
+    repeated ProductRequest products = 1;
+    int64 cartID = 2;
+}
+
+message OrderResponse {
+    repeated ProductResponse products = 1;
+    bool isSuccess = 2;
+}
