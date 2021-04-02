@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "5c497498-2f5a-40f4-8f5b-18d9c677b214",
+		"name": "PoCStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "PING",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3020/api/ping",
+							"host": [
+								"localhost"
+							],
+							"port": "3020",
+							"path": [
+								"api",
+								"ping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Active Cart For User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3020/api/cart?user_id=123",
+							"host": [
+								"localhost"
+							],
+							"port": "3020",
+							"path": [
+								"api",
+								"cart"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add To Cart Insufficient examplel",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\":456,\n    \"product_id\":101,\n    \"demand\":1000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3020/api/cart",
+							"host": [
+								"localhost"
+							],
+							"port": "3020",
+							"path": [
+								"api",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add To Cart Sufficent Example",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\":123,\n    \"product_id\":101,\n    \"demand\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3020/api/cart",
+							"host": [
+								"localhost"
+							],
+							"port": "3020",
+							"path": [
+								"api",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Checkout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3020/api/checkout?user_id=123",
+							"host": [
+								"localhost"
+							],
+							"port": "3020",
+							"path": [
+								"api",
+								"checkout"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "PING",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3021/api/ping",
+							"host": [
+								"localhost"
+							],
+							"port": "3021",
+							"path": [
+								"api",
+								"ping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3021/api/orders?user_id=123",
+							"host": [
+								"localhost"
+							],
+							"port": "3021",
+							"path": [
+								"api",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Warehouse",
+			"item": [
+				{
+					"name": "PING",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3022/api/ping",
+							"host": [
+								"localhost"
+							],
+							"port": "3022",
+							"path": [
+								"api",
+								"ping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product stock",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3022/internal/product/stock?product_id=101",
+							"host": [
+								"localhost"
+							],
+							"port": "3022",
+							"path": [
+								"internal",
+								"product",
+								"stock"
+							],
+							"query": [
+								{
+									"key": "product_id",
+									"value": "101"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
