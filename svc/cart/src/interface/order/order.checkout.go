@@ -19,6 +19,7 @@ func translateCheckoutOrderRequest(req *models.OrderCreationRequest) *order_GRPC
 	resp := &order_GRPC.OrderRequest{
 		Products: make([]*order_GRPC.ProductRequest, 0),
 		CartID:   req.CartID,
+		UserID:   req.UserID,
 	}
 	for _, product := range req.Products {
 		resp.Products = append(resp.Products, &order_GRPC.ProductRequest{
