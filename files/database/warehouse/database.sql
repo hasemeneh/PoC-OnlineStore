@@ -44,7 +44,7 @@ CREATE TABLE `wh_stock_history` (
 
 INSERT INTO `wh_stock_history` (`id`, `sk_id`, `type`, `amount`, `additional_info`, `created_at`) VALUES
 (1, 1, 100, 12, '{}', '2021-04-01 11:05:15'),
-(2, 1, 50, 1, '{}', '2021-04-01 11:46:18');
+(2, 1, 50, 1, '{}', '2021-04-01 11:46:18'),(3, 1, 100, 99, '{}', '2021-04-01 11:46:18');
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,7 @@ CREATE TABLE `wh_stock_keeping` (
 --
 
 INSERT INTO `wh_stock_keeping` (`id`, `product_id`, `created_at`, `updated_at`, `quantity`) VALUES
-(1, 101, '2021-04-01 11:04:22', '2021-04-01 11:42:38', 11);
+(1, 101, '2021-04-01 11:04:22', '2021-04-01 11:42:38', 110);
 
 --
 -- Indexes for dumped tables

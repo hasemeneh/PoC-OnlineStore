@@ -1,6 +1,8 @@
 {
     "db_connection":"root:@tcp(cart-db:3306)/cart_db?parseTime=true&loc=Local",
     "redis_connection":"cache:6379",
+    "warehouse_address":"warehouse:30022",
+    "order_address":"order:30021",
     "running_port":":3020",
     "grpc_port":":30020"
 }
