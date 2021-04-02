@@ -3,6 +3,7 @@ package checkout
 import (
 	"context"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/hasemeneh/PoC-OnlineStore/helper/response"
@@ -11,10 +12,14 @@ import (
 )
 
 func (c *checkoutUsecase) CheckoutOrder(ctx context.Context, userID int64) (*models.CheckoutResponse, error) {
+
 	resp := &models.CheckoutResponse{}
 	cartCache, err := c.GetCurrentUserCart(ctx, userID)
 	if err != nil {
 		return nil, err
+	}
+	if len(cartCache.Products) < 1 {
+		return nil, response.NewResponseError("empty cart", http.StatusUnprocessableEntity)
 	}
 	dbtx, err := c.CartRepo.StartTx(ctx)
 	if err != nil {
@@ -54,5 +59,9 @@ func (c *checkoutUsecase) CheckoutOrder(ctx context.Context, userID int64) (*mod
 		return resp, response.NewResponseError("Order not created", http.StatusUnprocessableEntity)
 	}
 	resp.Products = orderResp.Products
+	err = c.CartRepo.DestroyCart(ctx, userID)
+	if err != nil {
+		log.Println("[CheckoutOrder] Failed to destroy Cart Session")
+	}
 	return resp, nil
 }
