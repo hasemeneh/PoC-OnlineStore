@@ -11,6 +11,7 @@ type RedisInterface interface {
 	Set(key string, value string, TTL time.Duration) (string, error)
 	Exists(key ...string) (int64, error)
 	Exist(key string) (bool, error)
+	Del(key ...string) (int64, error)
 }
 type redisClient interface {
 	Get(key string) *redis.StringCmd
@@ -18,6 +19,7 @@ type redisClient interface {
 	HGet(key, field string) *redis.StringCmd
 	Set(key string, value interface{}, expiration time.Duration) *redis.StatusCmd
 	Exists(keys ...string) *redis.IntCmd
+	Del(keys ...string) *redis.IntCmd
 }
 type redisModule struct {
 	client redisClient
@@ -30,6 +32,7 @@ func New(address, password string) RedisInterface {
 		Password: password,
 		DB:       0,
 	})
+	client.Del()
 	return &redisModule{
 		client: client,
 	}
@@ -51,6 +54,9 @@ func (r *redisModule) Exists(key ...string) (int64, error) {
 	return r.client.Exists(key...).Result()
 }
 
+func (r *redisModule) Del(key ...string) (int64, error) {
+	return r.client.Del(key...).Result()
+}
 func (r *redisModule) Exist(key string) (bool, error) {
 	count, err := r.client.Exists(key).Result()
 	if count > 0 {
