@@ -18,6 +18,7 @@ func translacteOrderProductRequest(req *pb.OrderRequest) *models.OrderCreationRe
 	resp := &models.OrderCreationRequest{
 		Products: make([]models.ProductRequest, 0),
 		CartID:   req.CartID,
+		UserID:   req.UserID,
 	}
 	for _, product := range req.Products {
 		resp.Products = append(resp.Products, models.ProductRequest{
