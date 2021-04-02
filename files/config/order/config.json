@@ -1,5 +1,6 @@
 {
     "db_connection":"root:@tcp(order-db:3306)/order_db?parseTime=true&loc=Local",
+    "warehouse_address":"warehouse:30022",
     "redis_connection":"cache:6379",
     "running_port":":3021",
     "grpc_port":":30021"
