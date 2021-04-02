@@ -33,6 +33,8 @@ github.com/google/uuid v1.1.2/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+
 github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210401172200-62a9173233c8/go.mod h1:2MsEfxkjQFEoz1HS9Mb44dJ25tpEWmi+ku3EYZbLNfc=
 github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210401181300-195cc627e01c h1:yYr/8PWSLRIIb9hWzunvCnf6gKRjoNvtW+ZJAs1fM8U=
 github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210401181300-195cc627e01c/go.mod h1:2MsEfxkjQFEoz1HS9Mb44dJ25tpEWmi+ku3EYZbLNfc=
+github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210402012516-00f8f7428a59 h1:sQLyOL73lIE4qChNDAKEKg/pqPDlupmzUllM7+D5Ytg=
+github.com/hasemeneh/PoC-OnlineStore v0.0.0-20210402012516-00f8f7428a59/go.mod h1:2MsEfxkjQFEoz1HS9Mb44dJ25tpEWmi+ku3EYZbLNfc=
 github.com/hasemeneh/PoC-OnlineStore/helper v0.0.0-20210401161006-1d2548c75145/go.mod h1:TLNTp+r6lSg7iAKjK8bcmul6v1CBRqHPmHbfxdTl6cQ=
 github.com/hasemeneh/PoC-OnlineStore/helper v0.0.0-20210401181300-195cc627e01c h1:VPwihiQsBWt5eGOWfdCsmmR4Ltoe18J6KScJXX2wZlI=
 github.com/hasemeneh/PoC-OnlineStore/helper v0.0.0-20210401181300-195cc627e01c/go.mod h1:TLNTp+r6lSg7iAKjK8bcmul6v1CBRqHPmHbfxdTl6cQ=

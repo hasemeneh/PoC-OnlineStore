@@ -8,7 +8,7 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
-var insertOrderQuery = "INSERT INTO `o_orders` (`user_id`) VALUES (?);"
+var insertOrderQuery = "INSERT INTO `o_orders` (`user_id`,`cart_id`) VALUES (?,?);"
 
 func (p *orderDomain) InsertOrder(ctx context.Context, dbtx *sqlx.Tx, req models.OrderModel) (int64, error) {
 	var execFunc database.ExecFunc
@@ -17,7 +17,7 @@ func (p *orderDomain) InsertOrder(ctx context.Context, dbtx *sqlx.Tx, req models
 	} else {
 		execFunc = dbtx.ExecContext
 	}
-	result, err := execFunc(ctx, insertOrderQuery, req.UserID)
+	result, err := execFunc(ctx, insertOrderQuery, req.UserID, req.CartID)
 	if err != nil {
 		return 0, err
 	}

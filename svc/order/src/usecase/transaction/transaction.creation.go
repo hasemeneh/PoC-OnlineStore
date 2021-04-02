@@ -17,6 +17,7 @@ func (t *transactionUsecase) CreateOrder(ctx context.Context, req *models.OrderC
 	defer dbtx.Rollback()
 	orderID, err := t.OrderRepo.InsertOrder(ctx, dbtx, models.OrderModel{
 		UserID: req.UserID,
+		CartID: req.CartID,
 	})
 	if err != nil {
 		return resp, err
@@ -43,21 +44,21 @@ func (t *transactionUsecase) CreateOrder(ctx context.Context, req *models.OrderC
 	if warehouseResp == nil {
 		return resp, errors.New("Invalid Response from warehouse")
 	}
-	if len(warehouseResp.Products) != len(req.Products) {
-		return resp, errors.New("Invalid Response from warehouse")
-	}
+	isRevert := false
 	for _, warehouseProduct := range warehouseResp.Products {
 		if warehouseProduct.Status != constants.ClaimStatusOK {
-			return resp, errors.New("Product is Unavailable")
+			isRevert = true
 		}
 		resp.Products = append(resp.Products, models.ProductResponse{
 			ProductRequest: models.ProductRequest{
 				ProductID: warehouseProduct.ProductID,
 				Demand:    warehouseProduct.Demand,
 			},
-			Status: constants.ClaimStatusOK,
+			Status: warehouseProduct.Status,
 		})
 	}
-	resp.IsSuccess = true
+	if isRevert {
+		return resp, nil
+	}
 	return resp, dbtx.Commit()
 }

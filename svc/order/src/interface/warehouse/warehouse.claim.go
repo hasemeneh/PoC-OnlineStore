@@ -19,8 +19,8 @@ func (w *warehouseInterface) ClaimProduct(ctx context.Context, req *models.Claim
 func translacteClaimProductRequest(req *models.ClaimRequest) *pb.ClaimRequest {
 	resp := &pb.ClaimRequest{
 		Products: make([]*pb.ProductRequest, 0),
-		CartID:   req.CartID,
 		OrderID:  req.OrderID,
+		CartID:   req.CartID,
 	}
 	for _, product := range req.Products {
 		resp.Products = append(resp.Products, &pb.ProductRequest{
